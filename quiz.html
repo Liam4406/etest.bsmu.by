@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en" xml:lang="en">
+
+<head>
+    <title>Control test in the topic #13 (page 11 of 12) | E-Learning BSMU</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="shortcut icon"
+        href="https://etest.bsmu.by/pluginfile.php/1/theme_boost_union/favicon/64x64/1768059355/moodle-favi-uni.png" />
+
+
+    <style>
+        .tool_courserating-stars {
+            color: #e59819;
+        }
+
+        .tool_courserating-ratingcolor {
+            color: #b4690e;
+        }
+
+        .tool_courserating-norating .tool_courserating-stars {
+            color: #a0a0a0;
+        }
+
+        .tool_courserating-barcolor {
+            background-color: #e59819;
+        }
+    </style>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #d1d7db;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .config-panel {
+            margin-bottom: 20px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #simple-chat-widget {
+            height: 600px;
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            background: #f0f2f5;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        #chat-window {
+            flex: 1;
+            padding: 20px;
+            margin-top: 200%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #ffffff;
+        }
+
+        .msg {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 14.5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .sent {
+            background: #dcf8c6;
+            align-self: flex-end;
+            border-top-right-radius: 2px;
+        }
+
+        .received {
+            background: white;
+            align-self: flex-start;
+            border-top-left-radius: 2px;
+        }
+
+        .chat-image {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .file-link {
+            display: block;
+            text-decoration: none;
+            color: #075e54;
+            font-weight: bold;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            margin-top: 5px;
+            border: 1px dashed #075e54;
+        }
+
+        .input-area {
+            padding: 12px;
+            display: flex;
+            background: #ffffff;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .attach-btn {
+            cursor: pointer;
+            font-size: 22px;
+            color: #54656f;
+        }
+
+        #upload-status {
+            font-size: 12px;
+            color: #075e54;
+            padding: 5px;
+            display: none;
+            background: #dcf8c6;
+            text-align: center;
+        }
+    </style>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="moodle, Control test in the topic #13 (page 11 of 12) | E-Learning BSMU" />
+
+
+
+    <script id="firstthemesheet"
+        type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script>
+    <link rel="stylesheet" type="text/css"
+        href="https://etest.bsmu.by/theme/styles.php/boost_union/1768059355_1724244668/all" />
+    <script>
+        //<![CDATA[
+        var M = {}; M.yui = {};
+        M.pageloadstarttime = new Date();
+        M.cfg = { "wwwroot": "https:\/\/etest.bsmu.by", "homeurl": {}, "sesskey": "YWnJmuqjrz", "sessiontimeout": "6000", "sessiontimeoutwarning": "600", "themerev": "1768059355", "slasharguments": 1, "theme": "boost_union", "iconsystemmodule": "core\/icon_system_fontawesome", "jsrev": "1767735859", "admin": "admin", "svgicons": true, "usertimezone": "Europe\/Minsk", "language": "en", "courseId": 955, "courseContextId": 131393, "contextid": 243843, "contextInstanceId": 172977, "langrev": 1768009863, "templaterev": "1767735859", "siteId": 1 }; var yui1ConfigFn = function (me) { if (/-skin|reset|fonts|grids|base/.test(me.name)) { me.type = 'css'; me.path = me.path.replace(/\.js/, '.css'); me.path = me.path.replace(/\/yui2-skin/, '/assets/skins/sam/yui2-skin') } };
+        var yui2ConfigFn = function (me) {
+            var parts = me.name.replace(/^moodle-/, '').split('-'), component = parts.shift(), module = parts[0], min = '-min'; if (/-(skin|core)$/.test(me.name)) { parts.pop(); me.type = 'css'; min = '' }
+            if (module) { var filename = parts.join('-'); me.path = component + '/' + module + '/' + filename + min + '.' + me.type } else { me.path = component + '/' + component + '.' + me.type }
+        };
+        YUI_config = { "debug": false, "base": "https:\/\/etest.bsmu.by\/lib\/yuilib\/3.18.1\/", "comboBase": "https:\/\/etest.bsmu.by\/theme\/yui_combo.php?", "combine": true, "filter": null, "insertBefore": "firstthemesheet", "groups": { "yui2": { "base": "https:\/\/etest.bsmu.by\/lib\/yuilib\/2in3\/2.9.0\/build\/", "comboBase": "https:\/\/etest.bsmu.by\/theme\/yui_combo.php?", "combine": true, "ext": false, "root": "2in3\/2.9.0\/build\/", "patterns": { "yui2-": { "group": "yui2", "configFn": yui1ConfigFn } } }, "moodle": { "name": "moodle", "base": "https:\/\/etest.bsmu.by\/theme\/yui_combo.php?m\/1767735859\/", "combine": true, "comboBase": "https:\/\/etest.bsmu.by\/theme\/yui_combo.php?", "ext": false, "root": "m\/1767735859\/", "patterns": { "moodle-": { "group": "moodle", "configFn": yui2ConfigFn } }, "filter": null, "modules": { "moodle-core-blocks": { "requires": ["base", "node", "io", "dom", "dd", "dd-scroll", "moodle-core-dragdrop", "moodle-core-notification"] }, "moodle-core-notification": { "requires": ["moodle-core-notification-dialogue", "moodle-core-notification-alert", "moodle-core-notification-confirm", "moodle-core-notification-exception", "moodle-core-notification-ajaxexception"] }, "moodle-core-notification-dialogue": { "requires": ["base", "node", "panel", "escape", "event-key", "dd-plugin", "moodle-core-widget-focusafterclose", "moodle-core-lockscroll"] }, "moodle-core-notification-alert": { "requires": ["moodle-core-notification-dialogue"] }, "moodle-core-notification-confirm": { "requires": ["moodle-core-notification-dialogue"] }, "moodle-core-notification-exception": { "requires": ["moodle-core-notification-dialogue"] }, "moodle-core-notification-ajaxexception": { "requires": ["moodle-core-notification-dialogue"] }, "moodle-core-dragdrop": { "requires": ["base", "node", "io", "dom", "dd", "event-key", "event-focus", "moodle-core-notification"] }, "moodle-core-maintenancemodetimer": { "requires": ["base", "node"] }, "moodle-core-chooserdialogue": { "requires": ["base", "panel", "moodle-core-notification"] }, "moodle-core-handlebars": { "condition": { "trigger": "handlebars", "when": "after" } }, "moodle-core-lockscroll": { "requires": ["plugin", "base-build"] }, "moodle-core-event": { "requires": ["event-custom"] }, "moodle-core-actionmenu": { "requires": ["base", "event", "node-event-simulate"] }, "moodle-core_availability-form": { "requires": ["base", "node", "event", "event-delegate", "panel", "moodle-core-notification-dialogue", "json"] }, "moodle-backup-backupselectall": { "requires": ["node", "event", "node-event-simulate", "anim"] }, "moodle-course-management": { "requires": ["base", "node", "io-base", "moodle-core-notification-exception", "json-parse", "dd-constrain", "dd-proxy", "dd-drop", "dd-delegate", "node-event-delegate"] }, "moodle-course-dragdrop": { "requires": ["base", "node", "io", "dom", "dd", "dd-scroll", "moodle-core-dragdrop", "moodle-core-notification", "moodle-course-coursebase", "moodle-course-util"] }, "moodle-course-util": { "requires": ["node"], "use": ["moodle-course-util-base"], "submodules": { "moodle-course-util-base": {}, "moodle-course-util-section": { "requires": ["node", "moodle-course-util-base"] }, "moodle-course-util-cm": { "requires": ["node", "moodle-course-util-base"] } } }, "moodle-course-categoryexpander": { "requires": ["node", "event-key"] }, "moodle-form-dateselector": { "requires": ["base", "node", "overlay", "calendar"] }, "moodle-form-shortforms": { "requires": ["node", "base", "selector-css3", "moodle-core-event"] }, "moodle-question-chooser": { "requires": ["moodle-core-chooserdialogue"] }, "moodle-question-searchform": { "requires": ["base", "node"] }, "moodle-availability_completion-form": { "requires": ["base", "node", "event", "moodle-core_availability-form"] }, "moodle-availability_date-form": { "requires": ["base", "node", "event", "io", "moodle-core_availability-form"] }, "moodle-availability_grade-form": { "requires": ["base", "node", "event", "moodle-core_availability-form"] }, "moodle-availability_group-form": { "requires": ["base", "node", "event", "moodle-core_availability-form"] }, "moodle-availability_grouping-form": { "requires": ["base", "node", "event", "moodle-core_availability-form"] }, "moodle-availability_othercompleted-form": { "requires": ["base", "node", "event", "moodle-core_availability-form"] }, "moodle-availability_profile-form": { "requires": ["base", "node", "event", "moodle-core_availability-form"] }, "moodle-availability_relativedate-form": { "requires": ["base", "node", "event", "moodle-core_availability-form"] }, "moodle-mod_assign-history": { "requires": ["node", "transition"] }, "moodle-mod_customcert-rearrange": { "requires": ["dd-delegate", "dd-drag"] }, "moodle-mod_quiz-autosave": { "requires": ["base", "node", "event", "event-valuechange", "node-event-delegate", "io-form", "datatype-date-format"] }, "moodle-mod_quiz-modform": { "requires": ["base", "node", "event"] }, "moodle-mod_quiz-dragdrop": { "requires": ["base", "node", "io", "dom", "dd", "dd-scroll", "moodle-core-dragdrop", "moodle-core-notification", "moodle-mod_quiz-quizbase", "moodle-mod_quiz-util-base", "moodle-mod_quiz-util-page", "moodle-mod_quiz-util-slot", "moodle-course-util"] }, "moodle-mod_quiz-questionchooser": { "requires": ["moodle-core-chooserdialogue", "moodle-mod_quiz-util", "querystring-parse"] }, "moodle-mod_quiz-util": { "requires": ["node", "moodle-core-actionmenu"], "use": ["moodle-mod_quiz-util-base"], "submodules": { "moodle-mod_quiz-util-base": {}, "moodle-mod_quiz-util-slot": { "requires": ["node", "moodle-mod_quiz-util-base"] }, "moodle-mod_quiz-util-page": { "requires": ["node", "moodle-mod_quiz-util-base"] } } }, "moodle-mod_quiz-toolboxes": { "requires": ["base", "node", "event", "event-key", "io", "moodle-mod_quiz-quizbase", "moodle-mod_quiz-util-slot", "moodle-core-notification-ajaxexception"] }, "moodle-mod_quiz-quizbase": { "requires": ["base", "node"] }, "moodle-message_airnotifier-toolboxes": { "requires": ["base", "node", "io"] }, "moodle-editor_atto-rangy": { "requires": [] }, "moodle-editor_atto-editor": { "requires": ["node", "transition", "io", "overlay", "escape", "event", "event-simulate", "event-custom", "node-event-html5", "node-event-simulate", "yui-throttle", "moodle-core-notification-dialogue", "moodle-editor_atto-rangy", "handlebars", "timers", "querystring-stringify"] }, "moodle-editor_atto-plugin": { "requires": ["node", "base", "escape", "event", "event-outside", "handlebars", "event-custom", "timers", "moodle-editor_atto-menu"] }, "moodle-editor_atto-menu": { "requires": ["moodle-core-notification-dialogue", "node", "event", "event-custom"] }, "moodle-report_eventlist-eventfilter": { "requires": ["base", "event", "node", "node-event-delegate", "datatable", "autocomplete", "autocomplete-filters"] }, "moodle-report_loglive-fetchlogs": { "requires": ["base", "event", "node", "io", "node-event-delegate"] }, "moodle-gradereport_history-userselector": { "requires": ["escape", "event-delegate", "event-key", "handlebars", "io-base", "json-parse", "moodle-core-notification-dialogue"] }, "moodle-qbank_editquestion-chooser": { "requires": ["moodle-core-chooserdialogue"] }, "moodle-tool_lp-dragdrop-reorder": { "requires": ["moodle-core-dragdrop"] }, "moodle-assignfeedback_editpdf-editor": { "requires": ["base", "event", "node", "io", "graphics", "json", "event-move", "event-resize", "transition", "querystring-stringify-simple", "moodle-core-notification-dialog", "moodle-core-notification-alert", "moodle-core-notification-warning", "moodle-core-notification-exception", "moodle-core-notification-ajaxexception"] }, "moodle-atto_accessibilitychecker-button": { "requires": ["color-base", "moodle-editor_atto-plugin"] }, "moodle-atto_accessibilityhelper-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_align-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_bold-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_charmap-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_clear-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_collapse-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_emojipicker-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_emoticon-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_equation-button": { "requires": ["moodle-editor_atto-plugin", "moodle-core-event", "io", "event-valuechange", "tabview", "array-extras"] }, "moodle-atto_h5p-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_html-codemirror": { "requires": ["moodle-atto_html-codemirror-skin"] }, "moodle-atto_html-button": { "requires": ["promise", "moodle-editor_atto-plugin", "moodle-atto_html-beautify", "moodle-atto_html-codemirror", "event-valuechange"] }, "moodle-atto_html-beautify": {}, "moodle-atto_image-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_indent-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_italic-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_link-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_managefiles-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_managefiles-usedfiles": { "requires": ["node", "escape"] }, "moodle-atto_media-button": { "requires": ["moodle-editor_atto-plugin", "moodle-form-shortforms"] }, "moodle-atto_noautolink-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_orderedlist-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_recordrtc-recording": { "requires": ["moodle-atto_recordrtc-button"] }, "moodle-atto_recordrtc-button": { "requires": ["moodle-editor_atto-plugin", "moodle-atto_recordrtc-recording"] }, "moodle-atto_rtl-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_strike-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_subscript-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_superscript-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_table-button": { "requires": ["moodle-editor_atto-plugin", "moodle-editor_atto-menu", "event", "event-valuechange"] }, "moodle-atto_title-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_underline-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_undo-button": { "requires": ["moodle-editor_atto-plugin"] }, "moodle-atto_unorderedlist-button": { "requires": ["moodle-editor_atto-plugin"] } } }, "gallery": { "name": "gallery", "base": "https:\/\/etest.bsmu.by\/lib\/yuilib\/gallery\/", "combine": true, "comboBase": "https:\/\/etest.bsmu.by\/theme\/yui_combo.php?", "ext": false, "root": "gallery\/1767735859\/", "patterns": { "gallery-": { "group": "gallery" } } } }, "modules": { "core_filepicker": { "name": "core_filepicker", "fullpath": "https:\/\/etest.bsmu.by\/lib\/javascript.php\/1767735859\/repository\/filepicker.js", "requires": ["base", "node", "node-event-simulate", "json", "async-queue", "io-base", "io-upload-iframe", "io-form", "yui2-treeview", "panel", "cookie", "datatable", "datatable-sort", "resize-plugin", "dd-plugin", "escape", "moodle-core_filepicker", "moodle-core-notification-dialogue"] }, "core_comment": { "name": "core_comment", "fullpath": "https:\/\/etest.bsmu.by\/lib\/javascript.php\/1767735859\/comment\/comment.js", "requires": ["base", "io-base", "node", "json", "yui2-animation", "overlay", "escape"] }, "core_question_flags": { "name": "core_question_flags", "fullpath": "https:\/\/etest.bsmu.by\/lib\/javascript.php\/1767735859\/question\/flags.js", "requires": ["base", "dom", "event-delegate", "io-base"] }, "core_question_engine": { "name": "core_question_engine", "fullpath": "https:\/\/etest.bsmu.by\/lib\/javascript.php\/1767735859\/question\/qengine.js", "requires": ["node", "event"] }, "mod_quiz": { "name": "mod_quiz", "fullpath": "https:\/\/etest.bsmu.by\/lib\/javascript.php\/1767735859\/mod\/quiz\/module.js", "requires": ["base", "dom", "event-delegate", "event-key", "core_question_engine"] } }, "logInclude": [], "logExclude": [], "logLevel": null };
+        M.yui.loader = { modules: {} };
+
+        //]]>
+    </script>
+
+    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="page-mod-quiz-attempt">
+    class="format-topics limitedwidth path-mod path-mod-quiz chrome dir-ltr lang-en yui-skin-sam yui3-skin-sam
+    etest-bsmu-by pagelayout-incourse course-955 context-243843 cmid-172977 cm-type-quiz category-9 theme uses-drawers
+    theme-boost-union-smartmenu theme-boost-union-bottombar nocourseindexcmicons theme_boost-union-footerbuttondesktop">
+    <div class="toast-wrapper mx-auto py-0 fixed-top" role="status" aria-live="polite"></div>
+    <div id="page-wrapper" class="d-print-block">
+
+        <div>
+            <a class="sr-only sr-only-focusable" href="#maincontent">Skip to main content</a>
+        </div>
+        <script src="https://etest.bsmu.by/lib/javascript.php/1767735859/lib/polyfills/polyfill.js"></script>
+        <script src="https://etest.bsmu.by/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js"></script>
+        <script src="https://etest.bsmu.by/lib/javascript.php/1767735859/lib/javascript-static.js"></script>
+        <script>
+            //<![CDATA[
+            document.body.className += ' jsenabled';
+            //]]>
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+        <nav class="navbar fixed-top navbar-dark bg-primary navbar-expand " aria-label="Site navigation">
+            <div class="container-fluid">
+                <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers"
+                    data-action="toggle" data-target="theme_boost-drawers-primary">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">Side panel</span>
+                </button>
+
+                <a href="https://etest.bsmu.by/"
+                    class="navbar-brand align-items-center m-0 mr-4 p-0 aabtn   d-none d-md-flex  ">
+
+                    E-Learning BSMU
+                </a>
+                
+            </div>
+        </nav>
+
+
+        <div class="drawer drawer-left  d-print-none not-initialized" data-region="fixed-drawer"
+            id="theme_boost-drawers-courseindex" data-preference="drawer-open-index" data-state="show-drawer-left"
+            data-forceopen="0" data-close-on-resize="0">
+            <div class="drawerheader">
+                <button class="btn drawertoggle icon-no-margin hidden" data-toggler="drawers" data-action="closedrawer"
+                    data-target="theme_boost-drawers-courseindex" data-toggle="tooltip" data-placement="right"
+                    title="Close course index">
+                    <i class="icon fa fa-times fa-fw " aria-hidden="true"></i>
+                </button>
+
+                <div class="drawerheadercontent hidden">
+                    <div id="courseindexdrawercontrols" class="dropdown">
+                        <button onclick="sendChatMessage()" ; class="btn btn-icon rounded-circle mx-2" type="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            title="Course index options">
+                            <i class="icon fa fa-ellipsis-v fa-fw m-0" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#" data-action="expandallcourseindexsections">
+                                <i class="icon fa fa-angles-down fa-fw " aria-hidden="true"></i>
+                                Expand all
+                            </a>
+                            <a class="dropdown-item" href="#" data-action="collapseallcourseindexsections">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-angles-right fa-fw "
+                                        aria-hidden="true"></i></span>
+                                <span class="dir-ltr-hide"><i class="icon fa fa-angles-left fa-fw "
+                                        aria-hidden="true"></i></span>
+                                Collapse all
+                            </a>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="upload-status">Processing...</div>
+            <div class="input-area">
+                <input type="file" id="chat-file-input" style="display: none;" onchange="handleFileSelect(this)">
+                <label for="chat-file-input" class="attach-btn">.</label>
+                <input type="text" id="chat-msg-input" placeholder="">
+            </div>
+
+
+            <select id="user-selector" onchange="changeIdentity()">
+                <option value="User 1">He</option>
+                <option value="User 2">Me</option>
+            </select>
+
+
+
+        </div>
+        <div class="drawer drawer-right show d-print-none not-initialized" data-region="fixed-drawer"
+            id="theme_boost-drawers-blocks" data-preference="drawer-open-block" data-state="show-drawer-right"
+            data-forceopen="" data-close-on-resize="1">
+            <div class="drawerheader">
+                <button class="btn drawertoggle icon-no-margin hidden" data-toggler="drawers" data-action="closedrawer"
+                    data-target="theme_boost-drawers-blocks" data-toggle="tooltip" data-placement="left"
+                    title="Close block drawer">
+                    <i class="icon fa fa-times fa-fw " aria-hidden="true"></i>
+                </button>
+
+                <div class="drawerheadercontent hidden">
+
+                </div>
+            </div>
+            <div class="drawercontent drag-container" data-usertour="scroller">
+                <section class="d-print-none" aria-label="Blocks">
+
+                    <aside id="block-region-side-pre" class="block-region" data-blockregion="side-pre"
+                        data-droptarget="1">
+                        <h2 class="sr-only">Blocks</h2><a href="#sb-1" class="sr-only sr-only-focusable">Skip Quiz
+                            navigation</a>
+
+                        <section id="mod_quiz_navblock" class=" block block_fake  card mb-3" role="navigation"
+                            data-block="_fake" data-instance-id="fakeid-696531dd337b2"
+                            aria-labelledby="instance-fakeid-696531dd337b2-header">
+
+                            <div class="card-body p-3">
+
+                                <h3 id="instance-fakeid-696531dd337b2-header" class="h5 card-title d-inline">Quiz
+                                    navigation</h3>
+
+
+                                <div class="card-text content mt-3">
+                                    <div id="quiznojswarning">Warning: these links will not save your answers. Use the
+                                        next button at the bottom of the page.</div>
+                                    <div class="qn_buttons clearfix multipages"><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton4"
+                                            title="Question 1 - Not yet answered" data-quiz-page="0"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>1<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton1"
+                                            title="Question 2 - Not yet answered" data-quiz-page="1"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=1#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>2<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton5"
+                                            title="Question 3 - Not yet answered" data-quiz-page="2"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=2#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>3<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton11"
+                                            title="Question 4 - Not yet answered" data-quiz-page="3"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=3#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>4<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton10"
+                                            title="Question 5 - Not yet answered" data-quiz-page="4"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=4#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>5<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton8"
+                                            title="Question 6 - Not yet answered" data-quiz-page="5"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=5#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>6<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton7"
+                                            title="Question 7 - Not yet answered" data-quiz-page="6"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=6#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>7<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton12"
+                                            title="Question 8 - Not yet answered" data-quiz-page="7"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=7#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>8<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton2"
+                                            title="Question 9 - Not yet answered" data-quiz-page="8"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=8#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>9<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton9"
+                                            title="Question 10 - Not yet answered" data-quiz-page="9"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=9#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>10<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn thispage" id="quiznavbutton3"
+                                            title="Question 11 - Not yet answered" data-quiz-page="10"
+                                            href="#question-9094661-3"><span class="thispageholder"></span><span
+                                                class="trafficlight"></span><span class="accesshide">Question
+                                            </span>11<span class="accesshide"> This page <span
+                                                    class="flagstate"></span></span></a><a
+                                            class="qnbutton notyetanswered free btn" id="quiznavbutton6"
+                                            title="Question 12 - Not yet answered" data-quiz-page="11"
+                                            href="https://etest.bsmu.by/mod/quiz/attempt.php?attempt=8859611&amp;cmid=172977&amp;page=11#"><span
+                                                class="thispageholder"></span><span class="trafficlight"></span><span
+                                                class="accesshide">Question </span>12<span class="accesshide"> <span
+                                                    class="flagstate"></span></span></a></div>
+                                    <div class="othernav">
+                                        <div class="autosave_info" hidden="hidden">Last saved: -</div><a
+                                            class="endtestlink aalink"
+                                            href="https://etest.bsmu.by/mod/quiz/summary.php?attempt=8859611&amp;cmid=172977">Finish
+                                            attempt ...</a>
+                                    </div>
+                                    <div class="footer"></div>
+
+                                </div>
+
+
+                                <small id="current-user-display"></small>
+
+                                <div id="chat-window"></div>
+
+
+                                <script>
+                                    const SUPABASE_URL = 'https://drgquioiiefhokebieyt.supabase.co';
+                                    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyZ3F1aW9paWVmaG9rZWJpZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMzU2MDgsImV4cCI6MjA4MzkxMTYwOH0.o-wx4U3CEYJ4GUozwQaFgcre2ZdnkQMywiGFvNufO24';
+                                    const BUCKET_NAME = 'chat-files';
+                                    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+                                    let currentUser = "User 1";
+                                    const chatWindow = document.getElementById('chat-window');
+
+                                    async function init() {
+                                        await loadHistory();
+                                        subscribeToMessages();
+                                    }
+
+                                    function changeIdentity() {
+                                        currentUser = document.getElementById('user-selector').value;
+                                        document.getElementById('current-user-display');
+                                        chatWindow.innerHTML = "";
+                                        loadHistory();
+                                    }
+
+                                    function renderMessage(msgData) {
+                                        const isMe = msgData.sender_name === currentUser;
+                                        const msgDiv = document.createElement('div');
+                                        msgDiv.className = `msg ${isMe ? 'sent' : 'received'}`;
+                                        let html = `<small style="display:block; font-size:10px; color:#666; margin-bottom:4px;">${msgData.sender_name}</small>`;
+
+                                        if (msgData.file_url) {
+                                            const isImg = /\.(jpg|jpeg|png|webp|gif)$/i.test(msgData.file_url);
+                                            if (isImg) {
+                                                html += `<a href="${msgData.file_url}" target="_blank"><img src="${msgData.file_url}" class="chat-image"></a>`;
+                                            } else {
+                                                html += `<a href="${msgData.file_url}" target="_blank" class="file-link">📄 Download File</a>`;
+                                            }
+                                        }
+                                        if (msgData.content) html += `<div>${msgData.content}</div>`;
+
+                                        msgDiv.innerHTML = html;
+                                        chatWindow.appendChild(msgDiv);
+                                        chatWindow.scrollTop = chatWindow.scrollHeight;
+                                    }
+
+                                    async function loadHistory() {
+                                        const { data } = await supabaseClient.from('chat_messages').select('*').order('created_at', { ascending: true });
+                                        if (data) data.forEach(msg => renderMessage(msg));
+                                    }
+
+                                    async function sendChatMessage() {
+                                        const input = document.getElementById('chat-msg-input');
+                                        const val = input.value.trim();
+                                        if (!val) return;
+                                        await supabaseClient.from('chat_messages').insert([{ sender_name: currentUser, content: val }]);
+                                        input.value = "";
+                                    }
+
+                                    async function handleFileSelect(input) {
+                                        const file = input.files[0];
+                                        if (!file) return;
+                                        document.getElementById('upload-status').style.display = 'block';
+
+                                        try {
+                                            const fileName = `${Date.now()}_${file.name}`;
+                                            const { error: storageErr } = await supabaseClient.storage.from(BUCKET_NAME).upload(fileName, file);
+                                            if (storageErr) throw new Error("Storage: " + storageErr.message);
+
+                                            const { data: { publicUrl } } = supabaseClient.storage.from(BUCKET_NAME).getPublicUrl(fileName);
+
+                                            const { error: dbErr } = await supabaseClient.from('chat_messages').insert([{
+                                                sender_name: currentUser,
+                                                file_url: publicUrl,
+                                                content: ""
+                                            }]);
+                                            if (dbErr) throw new Error("Database: " + dbErr.message);
+
+                                        } catch (e) {
+                                            alert(e.message);
+                                        } finally {
+                                            document.getElementById('upload-status').style.display = 'none';
+                                            input.value = "";
+                                        }
+                                    }
+
+                                    function subscribeToMessages() {
+                                        supabaseClient.channel('chat').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'chat_messages' },
+                                            payload => renderMessage(payload.new)).subscribe();
+                                    }
+
+                                    document.getElementById('chat-msg-input').onkeydown = e => { if (e.key === "Enter") sendChatMessage(); };
+                                    init();
+                                </script>
+
+
+
+                            </div>
+
+                        </section>
+
+                        <span id="sb-1"></span>
+                    </aside>
+                </section>
+
+            </div>
+        </div>
+
+
+        <div id="page" data-region="mainpage" data-usertour="scroller"
+            class="drawers  show-drawer-right drag-container">
+
+
+
+            <div class="main-inner-wrapper main-inner-outside-none main-inner-outside-nextmaincontent">
+
+                <div id="topofscroll" class="main-inner">
+                    <div class="drawer-toggles d-flex">
+                        <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
+                            <button class="btn icon-no-margin" data-toggler="drawers" data-action="toggle"
+                                data-target="theme_boost-drawers-courseindex" data-toggle="tooltip"
+                                data-placement="right" title="Open course index">
+                                <span class="sr-only">Open course index</span>
+                                <i class="icon fa fa-list fa-fw " aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="drawer-toggler drawer-right-toggle ml-auto d-print-none">
+                            <button class="btn icon-no-margin" data-toggler="drawers" data-action="toggle"
+                                data-target="theme_boost-drawers-blocks" data-toggle="tooltip" data-placement="right"
+                                title="Open block drawer">
+                                <span class="sr-only">Open block drawer</span>
+                                <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw "
+                                        aria-hidden="true"></i></span>
+                                <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw "
+                                        aria-hidden="true"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <header id="page-header" class="header-maxwidth d-print-none">
+                        <div class="w-100">
+                            <div class="d-flex flex-wrap">
+                                <div id="page-navbar">
+                                    <nav aria-label="Navigation bar">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="https://etest.bsmu.by/course/index.php?categoryid=8">
+                                                    For English Medium Students
+                                                </a>
+                                            </li>
+
+                                            <li class="breadcrumb-item">
+                                                <a href="https://etest.bsmu.by/course/index.php?categoryid=9">
+                                                    General Medicine
+                                                </a>
+                                            </li>
+
+                                            <li class="breadcrumb-item">
+                                                <a href="https://etest.bsmu.by/course/view.php?id=955"
+                                                    title="Medical Biology and General Genetics">
+                                                    Medical Biology and General Genetics
+                                                </a>
+                                            </li>
+
+                                            <li class="breadcrumb-item">
+                                                <a href="https://etest.bsmu.by/course/section.php?id=15103"
+                                                    data-section-name-for="15103">
+                                                    #13. Variation. Mutagenesis. Carcinogenesis
+                                                </a>
+                                            </li>
+
+                                            <li class="breadcrumb-item">
+                                                <span>
+                                                    Control test in the topic #13
+                                                </span>
+                                            </li>
+
+                                    </nav>
+                                </div>
+                                <div class="ml-auto d-flex">
+
+                                </div>
+                                <div id="course-header">
+
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="mr-auto">
+                                    <div class="page-context-header d-flex align-items-center mb-2">
+                                        <div class="page-header-image">
+                                            <div class="assessment activityiconcontainer icon-size-6 modicon_quiz"><img
+                                                    class="icon activityicon " aria-hidden="true"
+                                                    src="https://etest.bsmu.by/theme/image.php/boost_union/quiz/1768059355/monologo?filtericon=1"
+                                                    alt="" /></div>
+                                        </div>
+                                        <div class="page-header-headings">
+                                            <h1 class="h2 mb-0">Control test in the topic #13</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-actions-container ml-auto" data-region="header-actions-container">
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div id="page-content" class="pb-3 d-print-block">
+                        <div id="region-main-box">
+                            <section id="region-main" aria-label="Content">
+
+                                <span class="notifications" id="user-notifications"></span>
+                                <span id="maincontent"></span>
+                                <div class="activity-header" data-for="page-activity-header"></div>
+
+                                <div role="main">
+                                    <div class="container-fluid tertiary-navigation">
+                                        <div class="row">
+                                            <div class="navitem"><a class="btn btn-secondary"
+                                                    href="https://etest.bsmu.by/mod/quiz/view.php?id=172977">Back</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="quiz-timer-wrapper" class="mb-2">
+                                        <div id="quiz-timer" class="quiz-timer-inner py-1 px-2 ml-auto" role="timer"
+                                            aria-atomic="true" aria-relevant="text">
+                                            Time left
+                                            <span id="quiz-time-left"></span>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary btn-small ml-1" id="toggle-timer"
+                                            aria-controls="quiz-timer" aria-describedby="quiz-timer">
+                                            Hide
+                                        </button>
+                                    </div>
+                                    <form action="https://etest.bsmu.by/mod/quiz/processattempt.php?cmid=172977"
+                                        method="post" enctype="multipart/form-data" accept-charset="utf-8"
+                                        id="responseform">
+                                        <div>
+                                            <div id="question-9094661-3"
+                                                class="que multichoiceset deferredfeedback notyetanswered">
+                                                <div class="info">
+                                                    <h3 class="no">Question <span class="qno">11</span></h3>
+                                                    <div class="state">Not yet answered</div>
+                                                    <div class="grade">Marked out of 1</div>
+                                                    <div class="questionflag editable"><input type="hidden"
+                                                            name="q9094661:3_:flagged" value="0" /><input type="hidden"
+                                                            value="qaid=171833523&amp;qubaid=9094661&amp;qid=6204499&amp;slot=3&amp;checksum=b9b67961cd85599c6e12d93833da3756&amp;sesskey=YWnJmuqjrz&amp;newstate="
+                                                            class="questionflagpostdata" /><input type="checkbox"
+                                                            id="q9094661:3_:flaggedcheckbox" name="q9094661:3_:flagged"
+                                                            value="1" /><label id="q9094661:3_:flaggedlabel"
+                                                            for="q9094661:3_:flaggedcheckbox"><img
+                                                                src="https://etest.bsmu.by/theme/image.php/boost_union/core/1768059355/i/unflagged"
+                                                                alt="" class="questionflagimage"
+                                                                id="q9094661:3_:flaggedimg" /><span>Flag
+                                                                question</span></label>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="formulation clearfix">
+                                                        <h4 class="accesshide">Question text</h4><input type="hidden"
+                                                            name="q9094661:3_:sequencecheck" value="1" />
+                                                        <div class="qtext">
+                                                            <p>Stability of genetic material is NOT provided by:</p>
+                                                        </div>
+                                                        <fieldset class="ablock no-overflow visual-scroll-x">
+                                                            <legend class="prompt h6 font-weight-normal "><span
+                                                                    class="sr-only">Question 11</span> Select one or
+                                                                more:</legend>
+                                                            <div class="answer">
+                                                                <div class="r0"><input type="hidden"
+                                                                        name="q9094661:3_choice0" value="0" /><input
+                                                                        type="checkbox" name="q9094661:3_choice0"
+                                                                        value="1" id="q9094661:3_choice0"
+                                                                        aria-labelledby="q9094661:3_choice0_label" />
+                                                                    <div class="d-flex w-auto"
+                                                                        id="q9094661:3_choice0_label"
+                                                                        data-region="answer-label"><span
+                                                                            class="answernumber">a. </span>
+                                                                        <div class="flex-fill ml-1">
+                                                                            <p>haploid chromosome set</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="r1"><input type="hidden"
+                                                                        name="q9094661:3_choice1" value="0" /><input
+                                                                        type="checkbox" name="q9094661:3_choice1"
+                                                                        value="1" id="q9094661:3_choice1"
+                                                                        aria-labelledby="q9094661:3_choice1_label" />
+                                                                    <div class="d-flex w-auto"
+                                                                        id="q9094661:3_choice1_label"
+                                                                        data-region="answer-label"><span
+                                                                            class="answernumber">b. </span>
+                                                                        <div class="flex-fill ml-1">
+                                                                            <p>redundancy of the genetic code</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="r0"><input type="hidden"
+                                                                        name="q9094661:3_choice2" value="0" /><input
+                                                                        type="checkbox" name="q9094661:3_choice2"
+                                                                        value="1" id="q9094661:3_choice2"
+                                                                        aria-labelledby="q9094661:3_choice2_label" />
+                                                                    <div class="d-flex w-auto"
+                                                                        id="q9094661:3_choice2_label"
+                                                                        data-region="answer-label"><span
+                                                                            class="answernumber">c. </span>
+                                                                        <div class="flex-fill ml-1">
+                                                                            <p>double helix of DNA</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="r1"><input type="hidden"
+                                                                        name="q9094661:3_choice3" value="0" /><input
+                                                                        type="checkbox" name="q9094661:3_choice3"
+                                                                        value="1" id="q9094661:3_choice3"
+                                                                        aria-labelledby="q9094661:3_choice3_label" />
+                                                                    <div class="d-flex w-auto"
+                                                                        id="q9094661:3_choice3_label"
+                                                                        data-region="answer-label"><span
+                                                                            class="answernumber">d. </span>
+                                                                        <div class="flex-fill ml-1">
+                                                                            <p>diploid chromosome set</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="r0"><input type="hidden"
+                                                                        name="q9094661:3_choice4" value="0" /><input
+                                                                        type="checkbox" name="q9094661:3_choice4"
+                                                                        value="1" id="q9094661:3_choice4"
+                                                                        aria-labelledby="q9094661:3_choice4_label" />
+                                                                    <div class="d-flex w-auto"
+                                                                        id="q9094661:3_choice4_label"
+                                                                        data-region="answer-label"><span
+                                                                            class="answernumber">e. </span>
+                                                                        <div class="flex-fill ml-1">
+                                                                            <p>DNA repair</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="submitbtns"><input type="submit" name="previous"
+                                                    value="Previous page" class="mod_quiz-prev-nav btn btn-secondary"
+                                                    id="mod_quiz-prev-nav" /><input type="submit" name="next"
+                                                    value="Next page" class="mod_quiz-next-nav btn btn-primary"
+                                                    id="mod_quiz-next-nav" /></div><input type="hidden" name="attempt"
+                                                value="8859611" /><input type="hidden" name="thispage" value="10"
+                                                id="followingpage" /><input type="hidden" name="nextpage"
+                                                value="11" /><input type="hidden" name="timeup" value="0"
+                                                id="timeup" /><input type="hidden" name="sesskey"
+                                                value="YWnJmuqjrz" /><input type="hidden" name="mdlscrollto" value=""
+                                                id="mdlscrollto" /><input type="hidden" name="slots" value="3" />
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <script>
+                //<![CDATA[
+                var require = {
+                    baseUrl: 'https://etest.bsmu.by/lib/requirejs.php/1767735859/',
+                    // We only support AMD modules with an explicit define() statement.
+                    enforceDefine: true,
+                    skipDataMain: true,
+                    waitSeconds: 0,
+
+                    paths: {
+                        jquery: 'https://etest.bsmu.by/lib/javascript.php/1767735859/lib/jquery/jquery-3.7.1.min',
+                        jqueryui: 'https://etest.bsmu.by/lib/javascript.php/1767735859/lib/jquery/ui-1.13.2/jquery-ui.min',
+                        jqueryprivate: 'https://etest.bsmu.by/lib/javascript.php/1767735859/lib/requirejs/jquery-private'
+                    },
+
+                    // Custom jquery config map.
+                    map: {
+                        // '*' means all modules will get 'jqueryprivate'
+                        // for their 'jquery' dependency.
+                        '*': { jquery: 'jqueryprivate' },
+                        // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+                        '*': { process: 'core/first' },
+
+                        // 'jquery-private' wants the real jQuery module
+                        // though. If this line was not here, there would
+                        // be an unresolvable cyclic dependency.
+                        jqueryprivate: { jquery: 'jquery' }
+                    }
+                };
+
+                //]]>
+            </script>
+            <script src="https://etest.bsmu.by/lib/javascript.php/1767735859/lib/requirejs/require.min.js"></script>
+            <script>
+                //<![CDATA[
+                M.util.js_pending("core/first");
+                require(['core/first'], function () {
+                    require(['core/prefetch'])
+                        ;
+                    M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function (amd) { amd.configure({ "mathjaxconfig": "\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n", "lang": "en" }); M.util.js_complete('filter_mathjaxloader/loader'); });;
+                    require(["media_videojs/loader"], function (loader) {
+                        loader.setUp('en');
+                    });;
+                    M.util.js_pending('filter_glossary/autolinker'); require(['filter_glossary/autolinker'], function (amd) { amd.init(); M.util.js_complete('filter_glossary/autolinker'); });;
+                    M.util.js_pending('core/network'); require(['core/network'], function (amd) { amd.keepalive(600, 0, "sessionerroruser", "error"); M.util.js_complete('core/network'); });;
+                    M.util.js_pending('tool_courserating/rating'); require(['tool_courserating/rating'], function (amd) { amd.init(1); M.util.js_complete('tool_courserating/rating'); });;
+                    M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function (amd) { amd.setViewFormat("955", { "editing": false, "supportscomponents": true, "statekey": "1767949770_1768239192", "overriddenStrings": [] }); M.util.js_complete('core_courseformat/courseeditor'); });;
+
+                    require(['core_courseformat/local/courseindex/placeholder'], function (component) {
+                        component.init('course-index-placeholder');
+                    });
+                    ;
+
+                    require(['core_courseformat/local/courseindex/drawer'], function (component) {
+                        component.init('courseindex');
+                    });
+                    ;
+                    M.util.js_pending('theme_boost_union/backtotopbutton'); require(['theme_boost_union/backtotopbutton'], function (amd) { amd.init(); M.util.js_complete('theme_boost_union/backtotopbutton'); });;
+
+                    require(['core/moremenu'], function (moremenu) {
+                        moremenu(document.querySelector('#moremenu-696531dd68416-navbar-nav'));
+                    });
+                    ;
+
+                    require(['jquery', 'message_popup/notification_popover_controller'], function ($, Controller) {
+                        var container = $('#nav-notification-popover-container');
+                        var controller = new Controller(container);
+                        controller.registerEventListeners();
+                        controller.registerListNavigationEventListeners();
+                    });
+                    ;
+
+                    require(
+                        [
+                            'jquery',
+                            'core_message/message_popover'
+                        ],
+                        function (
+                            $,
+                            Popover
+                        ) {
+                            var toggle = $('#message-drawer-toggle-696531dd6cd95696531dd30ffd6');
+                            Popover.init(toggle);
+                        });
+                    ;
+
+                    require(['core/usermenu'], function (UserMenu) {
+                        UserMenu.init();
+                    });
+                    ;
+
+                    require(['theme_boost/drawers']);
+                    ;
+
+                    require(['theme_boost/courseindexdrawercontrols'], function (component) {
+                        component.init('courseindexdrawercontrols');
+                    });
+                    ;
+
+                    require(['theme_boost/drawers']);
+                    ;
+
+                    require(['theme_boost/drawers']);
+                    ;
+
+                    require(['theme_boost/footer-popover'], function (FooterPopover) {
+                        FooterPopover.init();
+                    });
+                    ;
+
+                    require(['jquery', 'core_message/message_drawer'], function ($, MessageDrawer) {
+                        var root = $('#message-drawer-696531dd72400696531dd30ffd7');
+                        MessageDrawer.init(root, '696531dd72400696531dd30ffd7', false);
+                    });
+                    ;
+
+                    M.util.js_pending('theme_boost/loader');
+                    require(['theme_boost/loader', 'theme_boost/drawer', 'theme_boost_union/smartmenu'], function (Loader, Drawer, SmartMenu) {
+                        Drawer.init();
+                        M.util.js_complete('theme_boost/loader');
+
+                        SmartMenu.init();
+                    });
+                    ;
+                    M.util.js_pending('qtype_multichoice/answers'); require(['qtype_multichoice/answers'], function (amd) { amd.init("question-9094661-3"); M.util.js_complete('qtype_multichoice/answers'); });;
+                    M.util.js_pending('core_form/submit'); require(['core_form/submit'], function (amd) { amd.init("mod_quiz-prev-nav"); M.util.js_complete('core_form/submit'); });;
+                    M.util.js_pending('core_form/submit'); require(['core_form/submit'], function (amd) { amd.init("mod_quiz-next-nav"); M.util.js_complete('core_form/submit'); });;
+                    M.util.js_pending('core/notification'); require(['core/notification'], function (amd) { amd.init(243843, []); M.util.js_complete('core/notification'); });;
+                    M.util.js_pending('core/log'); require(['core/log'], function (amd) { amd.setConfig({ "level": "warn" }); M.util.js_complete('core/log'); });;
+                    M.util.js_pending('core/page_global'); require(['core/page_global'], function (amd) { amd.init(); M.util.js_complete('core/page_global'); });;
+                    M.util.js_pending('core/utility'); require(['core/utility'], function (amd) { M.util.js_complete('core/utility'); });;
+                    M.util.js_pending('core/storage_validation'); require(['core/storage_validation'], function (amd) { amd.init(1768239191); M.util.js_complete('core/storage_validation'); });
+                    M.util.js_complete("core/first");
+                });
+                //]]>
+            </script>
+            <script>
+                //<![CDATA[
+                M.yui.add_module({ "core_question_engine": { "name": "core_question_engine", "fullpath": "https:\/\/etest.bsmu.by\/lib\/javascript.php\/1767735859\/question\/qengine.js", "requires": ["node", "event"] }, "mod_quiz": { "name": "mod_quiz", "fullpath": "https:\/\/etest.bsmu.by\/lib\/javascript.php\/1767735859\/mod\/quiz\/module.js", "requires": ["base", "dom", "event-delegate", "event-key", "core_question_engine"] } });
+
+                //]]>
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured"></script>
+            <script src="https://etest.bsmu.by/theme/javascript.php/boost_union/1768059355/footer"></script>
+            <script>
+                //<![CDATA[
+                M.str = { "moodle": { "lastmodified": "Last modified", "name": "Name", "error": "Error", "info": "Information", "yes": "Yes", "no": "No", "cancel": "Cancel", "show": "Show", "hide": "Hide", "confirm": "Confirm", "areyousure": "Are you sure?", "closebuttontitle": "Close", "unknownerror": "Unknown error", "file": "File", "url": "URL", "collapseall": "Collapse all", "expandall": "Expand all" }, "repository": { "type": "Type", "size": "Size", "invalidjson": "Invalid JSON string", "nofilesattached": "No files attached", "filepicker": "File picker", "logout": "Logout", "nofilesavailable": "No files available", "norepositoriesavailable": "Sorry, none of your current repositories can return files in the required format.", "fileexistsdialogheader": "File exists", "fileexistsdialog_editor": "A file with that name has already been attached to the text you are editing.", "fileexistsdialog_filemanager": "A file with that name has already been attached", "renameto": "Rename to \"{$a}\"", "referencesexist": "There are {$a} links to this file", "select": "Select" }, "admin": { "confirmdeletecomments": "Are you sure you want to delete the selected comment(s)?", "confirmation": "Confirmation" }, "langconfig": { "strftimedatetimeshortaccurate": "%d\/%m\/%y, %H:%M:%S", "labelsep": ": " }, "quiz": { "lastautosave": "Last saved: {$a}", "functiondisabledbysecuremode": "That functionality is currently disabled", "startattempt": "Start attempt", "timesup": "Time is up!" }, "question": { "flagged": "Flagged" }, "debug": { "debuginfo": "Debug info", "line": "Line", "stacktrace": "Stack trace" } };
+                //]]>
+            </script>
+            <script>
+                //<![CDATA[
+                (function () {
+                    Y.use("moodle-mod_quiz-autosave", function () {
+                        M.mod_quiz.autosave.init("120");
+                    });
+                    M.util.js_pending('random696531dd30ffd1'); Y.use('core_question_flags', function (Y) { M.core_question_flags.init(Y, "https:\/\/etest.bsmu.by\/question\/toggleflag.php", [{ "src": "https:\/\/etest.bsmu.by\/theme\/image.php\/boost_union\/core\/1768059355\/i\/unflagged", "title": "Flag this question for future reference", "alt": "Flagged", "text": "Flag question" }, { "src": "https:\/\/etest.bsmu.by\/theme\/image.php\/boost_union\/core\/1768059355\/i\/flagged", "title": "Remove flag", "alt": "Flagged", "text": "Remove flag" }]); M.util.js_complete('random696531dd30ffd1'); });
+                    M.util.js_pending('random696531dd30ffd2'); Y.use('mod_quiz', function (Y) { M.mod_quiz.init_attempt_form(Y); M.util.js_complete('random696531dd30ffd2'); });
+                    M.util.js_pending('random696531dd30ffd3'); Y.use('mod_quiz', function (Y) { M.mod_quiz.nav.init(Y); M.util.js_complete('random696531dd30ffd3'); });
+                    M.util.help_popups.setup(Y);
+                    M.util.js_pending('random696531dd30ffd8'); Y.use('mod_quiz', function (Y) { M.mod_quiz.timer.init(Y, 631, false); M.util.js_complete('random696531dd30ffd8'); });
+                    M.util.js_pending('random696531dd30ffd9'); Y.on('domready', function () { M.util.js_complete("init"); M.util.js_complete('random696531dd30ffd9'); });
+                })();
+                //]]>
+            </script>
+
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>
